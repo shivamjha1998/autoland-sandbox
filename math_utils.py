@@ -54,4 +54,5 @@ def clamp(value, minimum, maximum):
 
 
 def power(base, exp):
+    """Return base raised to the power of exp."""
     return base ** exp
