@@ -2,7 +2,7 @@
 
 
 def add(a, b):
-    return a - b  # BUG: should be a + b
+    return a + b
 
 
 def subtract(a, b):
@@ -14,20 +14,23 @@ def multiply(a, b):
 
 
 def divide(a, b):
-    return a / b  # BUG: no zero-division guard
+    if b == 0:
+        raise ZeroDivisionError("Cannot divide by zero")
+    return a / b
 
 
 def average(numbers):
-    total = 0
-    for n in numbers:
-        total += n
-    return total / len(numbers)  # BUG: crashes on empty list
+    if not numbers:
+        raise ValueError("Cannot average an empty list")
+    return sum(numbers) / len(numbers)
 
 
 def factorial(n):
+    if n < 0:
+        raise ValueError("Factorial not defined for negative numbers")
     if n == 0:
         return 1
-    return n * factorial(n - 1)  # BUG: no negative input guard
+    return n * factorial(n - 1)
 
 
 def is_even(n):
@@ -38,5 +41,5 @@ def clamp(value, minimum, maximum):
     if value < minimum:
         return minimum
     if value > maximum:
-        return minimum  # BUG: should return maximum
+        return maximum
     return value

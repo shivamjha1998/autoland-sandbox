@@ -6,7 +6,7 @@ def reverse_string(s):
 
 
 def capitalize_words(sentence):
-    return sentence.lower()  # BUG: should capitalize, not lowercase
+    return sentence.title()
 
 
 def count_vowels(s):
@@ -21,7 +21,7 @@ def count_vowels(s):
 def truncate(s, max_length, suffix="..."):
     if len(s) <= max_length:
         return s
-    return s[:max_length] + suffix  # BUG: doesn't account for suffix length
+    return s[:max_length - len(suffix)] + suffix
 
 
 def is_palindrome(s):
